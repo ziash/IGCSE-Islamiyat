@@ -1,0 +1,251 @@
+{
+  "student": "Waiz",
+  "timestamp": "2026-03-25T21:22:36.660376",
+  "sections_attempted": [
+    "A"
+  ],
+  "score": 11,
+  "total": 19,
+  "percentage": 57.9,
+  "time_taken_seconds": 501,
+  "weak_sections": [
+    "A"
+  ],
+  "section_scores": {
+    "A": {
+      "score": 11,
+      "total": 19,
+      "source": "Quranic"
+    }
+  },
+  "question_results": [
+    {
+      "question_id": "q_0_112",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What does verse 3 of Surah Al-Ikhlas state about Allah?",
+      "student_answer": "B",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_1_101",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What happens to the person whose scales are heavy with good deeds in Surah Al-Qariah?",
+      "student_answer": "A",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_2_114",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What does \"Al-Waswas Al-Khannas\" refer to in Surah Al-Naas?",
+      "student_answer": "A",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_3_100",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What event is described in verse 9 of Surah Al-Adiyat?",
+      "student_answer": "B",
+      "correct_answer": "A",
+      "model_answer": "A",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_4_101",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "To what are people compared on the Day of Al-Qariah?",
+      "student_answer": "A",
+      "correct_answer": "A",
+      "model_answer": "A",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_5_100",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What do the war horses produce as they strike in Surah Al-Adiyat verse 2?",
+      "student_answer": "C",
+      "correct_answer": "C",
+      "model_answer": "C",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_6_100",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What does Allah swear by in the first verse of Surah Al-Adiyat?",
+      "student_answer": "B",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_7_101",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What does \"Al-Qariah\" literally mean?",
+      "student_answer": "B",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_8_100",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "According to Surah Al-Adiyat, what is the nature of mankind towards their Lord?",
+      "student_answer": "C",
+      "correct_answer": "C",
+      "model_answer": "C",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_9_110",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "The \"Fath\" (conquest) mentioned in Surah Al-Nasr refers to:",
+      "student_answer": "D",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_10_103",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What does Allah swear by at the beginning of Surah Al-Asr?",
+      "student_answer": "D",
+      "correct_answer": "C",
+      "model_answer": "C",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_11_103",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "According to Surah Al-Asr, what is the condition of mankind?",
+      "student_answer": "B",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_12_108",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What two acts of worship does Allah command in verse 2 of Surah Al-Kauthar?",
+      "student_answer": "A",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_13_114",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "In Surah Al-Naas, who is described as the Lord, King, and God of mankind?",
+      "student_answer": "B",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_14_108",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "In Surah Al-Kauthar, who is described as \"cut off\" (Al-Abtar)?",
+      "student_answer": "D",
+      "correct_answer": "C",
+      "model_answer": "C",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_15_112",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What fundamental concept of Islamic theology does Surah Al-Ikhlas verse 1 express?",
+      "student_answer": "B",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_16_109",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What principle does the final verse of Surah Al-Kafirun establish?",
+      "student_answer": "B",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_17_108",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "What did Allah grant to the Prophet (pbuh) in Surah Al-Kauthar?",
+      "student_answer": "B",
+      "correct_answer": "B",
+      "model_answer": "B",
+      "correct": true,
+      "marks_earned": 1,
+      "marks_available": 1
+    },
+    {
+      "question_id": "q_18_103",
+      "section": "A",
+      "source_type": "Quranic",
+      "question": "How many qualities are mentioned in Surah Al-Asr for those NOT in loss?",
+      "student_answer": "B",
+      "correct_answer": "C",
+      "model_answer": "C",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 1
+    }
+  ]
+}

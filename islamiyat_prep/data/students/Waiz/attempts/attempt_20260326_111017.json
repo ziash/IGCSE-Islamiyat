@@ -1,0 +1,65 @@
+{
+  "student": "Waiz",
+  "timestamp": "2026-03-26T11:10:17.581060",
+  "sections_attempted": [
+    "B"
+  ],
+  "score": 0,
+  "total": 9,
+  "percentage": 0.0,
+  "time_taken_seconds": 207,
+  "weak_sections": [
+    "B"
+  ],
+  "section_scores": {
+    "B": {
+      "score": 0,
+      "total": 9,
+      "source": "B"
+    }
+  },
+  "question_results": [
+    {
+      "question_id": "q_0_2",
+      "section": "B",
+      "source_type": "B",
+      "topic": "B",
+      "question": "Explain the role of Hazrat Abu Bakr (RA) in the compilation of the Quran. [4 marks]",
+      "options": {},
+      "student_answer": "There Were battles going on SO Hasrat abubakr  ra toook the desition of the compilation Beacause the hifz were dying at the brophet time it was oral So H abubakr 1 clahiph orderd it was ended at h.uthman Ra claliph time\n",
+      "correct_answer": "After many Huffaz (memorisers) died in the Battle of Yamama, Hazrat Umar (RA) advised Abu Bakr (RA) to compile the Quran. He appointed Zayd ibn Thabit (RA) to lead the task. Verses were accepted only if confirmed by two witnesses (written and memorised). The result was a single authoritative Mushaf preserved by Abu Bakr (RA) and later passed to Hafsa (RA).",
+      "model_answer": "After many Huffaz (memorisers) died in the Battle of Yamama, Hazrat Umar (RA) advised Abu Bakr (RA) to compile the Quran. He appointed Zayd ibn Thabit (RA) to lead the task. Verses were accepted only if confirmed by two witnesses (written and memorised). The result was a single authoritative Mushaf preserved by Abu Bakr (RA) and later passed to Hafsa (RA).",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 4
+    },
+    {
+      "question_id": "q_1_2",
+      "section": "B",
+      "source_type": "B",
+      "topic": "B",
+      "question": "Why was the standardisation of the Quranic text under Hazrat Uthman (RA) important? [4 marks]",
+      "options": {},
+      "student_answer": "at his time the compilation ended  of the quran and quran is a complete source of guildence with no chsnge till now\n",
+      "correct_answer": "Different regions were using different dialect copies leading to disputes. Hazrat Uthman (RA) formed a committee led by Zayd ibn Thabit to produce a standard text in the Qurayshi dialect. Multiple copies were sent to all provinces. Other copies were burned to prevent division. This preserved unity of the Ummah and ensured the Quran's authentic preservation.",
+      "model_answer": "Different regions were using different dialect copies leading to disputes. Hazrat Uthman (RA) formed a committee led by Zayd ibn Thabit to produce a standard text in the Qurayshi dialect. Multiple copies were sent to all provinces. Other copies were burned to prevent division. This preserved unity of the Ummah and ensured the Quran's authentic preservation.",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 4
+    },
+    {
+      "question_id": "q_2_4",
+      "section": "B",
+      "source_type": "B",
+      "topic": "B",
+      "question": "The belief in the Oneness of Allah is known as _______ in Arabic.",
+      "options": {},
+      "student_answer": "Tawheed\n",
+      "correct_answer": "Tawheed",
+      "model_answer": "Tawheed",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 1
+    }
+  ]
+}

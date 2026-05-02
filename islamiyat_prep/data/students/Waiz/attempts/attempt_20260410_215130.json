@@ -1,0 +1,37 @@
+{
+  "student": "Waiz",
+  "timestamp": "2026-04-10T21:51:30.976100",
+  "sections_attempted": [
+    "C"
+  ],
+  "score": 0,
+  "total": 6,
+  "percentage": 0.0,
+  "time_taken_seconds": 180,
+  "weak_sections": [
+    "C"
+  ],
+  "section_scores": {
+    "C": {
+      "score": 0,
+      "total": 6,
+      "source": "C"
+    }
+  },
+  "question_results": [
+    {
+      "question_id": "q_0_5",
+      "section": "C",
+      "source_type": "C",
+      "topic": "C",
+      "question": "Describe the main events of the Battle of Badr. [6 marks]",
+      "options": {},
+      "student_answer": "the battle of badr was the 1 major battle in islam although muslim were 313 and qurash were 1000 Still qurash  although having bigger and powerfull army lost and muslims won this let to the many tribes to join islam This shows that having faith/iman in allah wins This also shows that victory doesnt come from Power or army but indeed from Allah\n",
+      "correct_answer": "Level 1 (1-2): Basic mention that it was a battle between Muslims and Quraysh. Level 2 (3-4): Numbers — 313 Muslims vs ~1000 Quraysh; Muslim victory despite being outnumbered. Level 3 (5-6): Detailed account including: interception of Quraysh caravan, key leaders (Abu Jahl killed), divine assistance (angels), 70 Quraysh killed and 70 captured, significance as Allah's help to believers.",
+      "model_answer": "Level 1 (1-2): Basic mention that it was a battle between Muslims and Quraysh. Level 2 (3-4): Numbers — 313 Muslims vs ~1000 Quraysh; Muslim victory despite being outnumbered. Level 3 (5-6): Detailed account including: interception of Quraysh caravan, key leaders (Abu Jahl killed), divine assistance (angels), 70 Quraysh killed and 70 captured, significance as Allah's help to believers.",
+      "correct": false,
+      "marks_earned": 0,
+      "marks_available": 6
+    }
+  ]
+}

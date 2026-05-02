@@ -1,0 +1,22 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+backend.log
+
+# Node.js
+nur-academy/node_modules/
+nur-academy/.next/
+nur-academy/out/
+nur-academy/build/
+nur-academy/.env*
+nur-academy/dist/
+
+# System/IDE
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.log
