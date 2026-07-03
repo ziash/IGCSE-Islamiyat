@@ -20,3 +20,9 @@ nur-academy/dist/
 .idea/
 *.swp
 *.log
+
+# Runtime, user-generated data (not source)
+backend/data/students/
+
+# Large source reference material (kept locally; app serves JSON, not PDFs)
+backend/data/source_docs/
