@@ -77,6 +77,11 @@ Three subjects currently ship a guide:
 
 Islamiyat, Pak Studies and Hospitality have no Paper 2 guide (their card stays hidden).
 
+## Preparation Sessions (hands-on Paper 2 walkthroughs)
+Separate from (and complementary to) the read-only `project_guide` rubric, a subject can ship **hands-on, click-by-click walkthroughs** — each teaches a complete end-to-end practical project. An **optional** `backend/data/{subject}/prep_sessions.json` is served by `GET /api/{subject}/prep_sessions` (404 when absent). Schema: `{sessions[{id, title, subtitle, project_name?, difficulty?, duration?, intro?, overview?[{label,value}], materials?[], steps[{title, detail?, substeps?[], tip?, illustration?}], evidence?[], ethics_note?, next_up?}]}`. Every session becomes its **own** indigo `Rocket` `DashboardCard` (rendered by `prepSessions.map(...)`); clicking opens the generic `prep_session` view. Each step's `illustration` is a **self-contained inline SVG string** (schematic mock-up of the real software screen) rendered via `dangerouslySetInnerHTML` with `[&_svg]:w-full` so it scales responsively — use single-quoted SVG attributes and no literal newlines so the string stays valid JSON. This is a **list**, so more sessions are added purely as data (no code change); each session is an independent, increasingly advanced project.
+
+**AI** currently ships **Session 1** — a full Google Teachable Machine "Recycling Sorter" (3-class image classifier) built end-to-end (define → collect → clean → train → test → improve → export → document), covering Paper 2 Component A plus the screenshots for Component B. Only AI has `prep_sessions.json`; all other subjects 404 and show no session cards.
+
 ## Production Roadmap
 Before this prototype can be hosted for real users, see [`ROADMAP.md`](ROADMAP.md) — the single source of truth for the pre-hosting gaps (auth, database, security hardening, deployment) and product features (results screen, AI grading, progress dashboard). Each item lists what's needed, options with pros/cons, and a suggested solution. Keep it updated as items ship.
 

@@ -1,6 +1,6 @@
-# Nur Academy: IGCSE Islamiyat Prep
+# Nur Academy: IGCSE Islamiyat & Pakistan Studies Prep
 
-Nur Academy is a high-fidelity, AI-powered study companion designed for the **LRN Global Board IGCSE Islamiyat** examination. It features a modern, mobile-first design, interactive memorization tools, and a dynamic exam engine.
+Nur Academy is a high-fidelity, AI-powered study companion designed for the **LRN Global Board IGCSE Islamiyat and Pakistan Studies** examinations. It features a modern, mobile-first design, interactive memorization tools, and a dynamic exam engine.
 
 ---
 
@@ -26,7 +26,7 @@ The platform has been migrated from a monolithic Streamlit app to a modern decou
 
 ### 3 — Multi-User Dashboard
 - Personalized "Assalam-o-Alaikum" landing page.
-- Progress tracking saved per-student in `islamiyat_prep/data/students/`.
+- Progress tracking saved per-student in `backend/data/students/`.
 
 ---
 
@@ -38,7 +38,7 @@ The platform has been migrated from a monolithic Streamlit app to a modern decou
 - Anthropic API Key (in `.env`)
 
 ### Installation & Run
-1.  Install Python dependencies: `pip install -r islamiyat_prep/requirements.txt`
+1.  Install Python dependencies: `pip install -r backend/requirements.txt`
 2.  Install Frontend dependencies: `cd nur-academy && npm install`
 3.  **Run Everything:**
     ```bash
@@ -48,9 +48,9 @@ The platform has been migrated from a monolithic Streamlit app to a modern decou
 ---
 
 ## 📁 Project Structure
-- `islamiyat_prep/main.py`: The "Brain" (FastAPI Backend).
+- `backend/main.py`: The "Brain" (FastAPI Backend).
 - `nur-academy/src/App.tsx`: The "Face" (Next.js Frontend).
-- `islamiyat_prep/data/`: Shared data store (Syllabus, Question Bank, Student Logs).
+- `backend/data/`: Shared data store (Syllabus, Question Bank, Student Logs).
 - `start_nur_academy.sh`: Unified startup script.
 
 ---

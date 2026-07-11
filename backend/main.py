@@ -105,6 +105,13 @@ async def get_project_guide(subject: str):
     if data: return data
     raise HTTPException(status_code=404, detail="No project guide for this subject")
 
+@app.get("/api/{subject}/prep_sessions")
+async def get_prep_sessions(subject: str):
+    path = os.path.join(DATA_DIR, subject, "prep_sessions.json")
+    data = load_json(path)
+    if data: return data
+    raise HTTPException(status_code=404, detail="No preparation sessions for this subject")
+
 @app.get("/api/students/{student_name}/{subject}/progress")
 async def get_student_progress(student_name: str, subject: str):
     path = os.path.join(get_student_path(student_name, subject), "progress_log.json")

@@ -24,7 +24,7 @@ echo "🚀 Starting Nur Academy System..."
 
 # 1. Start Backend (FastAPI)
 echo "Starting Backend (FastAPI) on http://127.0.0.1:8000..."
-"$PROJECT_ROOT/venv/bin/python3" "$PROJECT_ROOT/islamiyat_prep/main.py" > backend.log 2>&1 &
+"$PROJECT_ROOT/venv/bin/python3" "$PROJECT_ROOT/backend/main.py" > backend.log 2>&1 &
 BACKEND_PID=$!
 
 # Wait a moment for backend to initialize

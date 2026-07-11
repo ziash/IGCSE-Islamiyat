@@ -22,7 +22,9 @@ import {
   Cpu,
   BrainCircuit,
   MonitorSmartphone,
-  ClipboardList
+  ClipboardList,
+  Rocket,
+  Lightbulb
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -99,9 +101,11 @@ const SUBJECTS: Subject[] = [
 ];
 
 export default function App() {
-  const [view, setView] = useState<'subject_selection' | 'dashboard' | 'exam' | 'memorize' | 'project_guide'>('subject_selection');
+  const [view, setView] = useState<'subject_selection' | 'dashboard' | 'exam' | 'memorize' | 'project_guide' | 'prep_session'>('subject_selection');
   const [activeSubject, setActiveSubject] = useState<string | null>(null);
   const [guide, setGuide] = useState<any>(null);
+  const [prepSessions, setPrepSessions] = useState<any[]>([]);
+  const [activeSession, setActiveSession] = useState<any>(null);
   const [studentName, setStudentName] = useState("Baba");
   const [searchQuery, setSearchQuery] = useState("");
   
@@ -129,6 +133,17 @@ export default function App() {
       .then(res => res.ok ? res.json() : null)
       .then(data => setGuide(data))
       .catch(() => setGuide(null));
+  }, [activeSubject]);
+
+  // Fetch optional Paper 2 preparation sessions (step-by-step practical walkthroughs) when subject changes
+  useEffect(() => {
+    if (!activeSubject) { setPrepSessions([]); setActiveSession(null); return; }
+    setPrepSessions([]);
+    setActiveSession(null);
+    fetch(`${API_BASE}/api/${activeSubject}/prep_sessions`)
+      .then(res => res.ok ? res.json() : null)
+      .then(data => setPrepSessions(data?.sessions ?? []))
+      .catch(() => setPrepSessions([]));
   }, [activeSubject]);
 
   // Fetch Memorize Data when subject changes
@@ -315,6 +330,16 @@ export default function App() {
                 {guide && (
                   <DashboardCard icon={<ClipboardList size={32} />} color="violet" title={guide.title || "Paper 2 Guide"} desc="Paper 2 format, what's assessed, and a step-by-step preparation plan." action={() => setView('project_guide')} />
                 )}
+                {prepSessions.map((sess: any, i: number) => (
+                  <DashboardCard
+                    key={sess.id ?? i}
+                    icon={<Rocket size={32} />}
+                    color="indigo"
+                    title={sess.title}
+                    desc={sess.subtitle}
+                    action={() => { setActiveSession(sess); setView('prep_session'); }}
+                  />
+                ))}
               </div>
             </motion.div>
           )}
@@ -576,6 +601,117 @@ export default function App() {
               </button>
             </motion.div>
           )}
+
+          {view === 'prep_session' && activeSession && (
+            <motion.div key="prep" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="w-full max-w-4xl mx-auto flex flex-col gap-6">
+              {/* Header */}
+              <div className="bg-white border-2 border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                <span className="inline-block px-4 py-1.5 rounded-full bg-indigo-100 text-indigo-800 font-bold uppercase tracking-wider text-xs mb-4">Paper 2 - Hands-on Walkthrough</span>
+                <h2 className="text-3xl font-bold text-slate-800">{activeSession.title}</h2>
+                {activeSession.subtitle && <p className="mt-2 text-slate-500 font-medium">{activeSession.subtitle}</p>}
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {activeSession.project_name && <span className="px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-sm font-bold">{activeSession.project_name}</span>}
+                  {activeSession.difficulty && <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-sm font-semibold">{activeSession.difficulty}</span>}
+                  {activeSession.duration && <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-sm font-semibold">{activeSession.duration}</span>}
+                </div>
+                {activeSession.intro && <p className="mt-4 text-slate-600 leading-relaxed">{activeSession.intro}</p>}
+              </div>
+
+              {/* Overview facts */}
+              {activeSession.overview && activeSession.overview.length > 0 && (
+                <div className="bg-white border-2 border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                  <h3 className="text-lg font-bold text-indigo-800 mb-4 border-b-2 border-indigo-100 pb-2">At a Glance</h3>
+                  <div className="grid gap-3">
+                    {activeSession.overview.map((row: any, i: number) => (
+                      <div key={i} className="grid grid-cols-1 sm:grid-cols-3 gap-1 sm:gap-4 py-2 border-b border-slate-100 last:border-0">
+                        <span className="font-bold text-slate-700">{row.label}</span>
+                        <span className="sm:col-span-2 text-slate-600">{row.value}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* What you need */}
+              {activeSession.materials && activeSession.materials.length > 0 && (
+                <div className="bg-white border-2 border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                  <h3 className="text-lg font-bold text-indigo-800 mb-4 border-b-2 border-indigo-100 pb-2">Before You Start - What You Need</h3>
+                  <ul className="grid gap-2">
+                    {activeSession.materials.map((m: string, i: number) => (
+                      <li key={i} className="flex items-start gap-3 text-slate-600"><CheckCircle2 size={18} className="text-indigo-500 mt-0.5 shrink-0" />{m}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Step-by-step walkthrough */}
+              {activeSession.steps && activeSession.steps.map((step: any, i: number) => (
+                <div key={i} className="bg-white border-2 border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="shrink-0 w-10 h-10 rounded-full bg-indigo-600 text-white flex items-center justify-center font-bold">{i + 1}</div>
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-800">{step.title}</h3>
+                      {step.detail && <p className="mt-1 text-slate-600 leading-relaxed">{step.detail}</p>}
+                    </div>
+                  </div>
+                  {step.illustration && (
+                    <div
+                      className="mb-4 rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 [&_svg]:block [&_svg]:w-full [&_svg]:h-auto"
+                      dangerouslySetInnerHTML={{ __html: step.illustration }}
+                    />
+                  )}
+                  {step.substeps && step.substeps.length > 0 && (
+                    <ol className="grid gap-2.5 mb-4">
+                      {step.substeps.map((ss: string, j: number) => (
+                        <li key={j} className="flex items-start gap-3 text-slate-700">
+                          <span className="shrink-0 mt-0.5 w-6 h-6 rounded-full bg-indigo-100 text-indigo-700 text-xs font-bold flex items-center justify-center">{j + 1}</span>
+                          <span className="leading-relaxed">{ss}</span>
+                        </li>
+                      ))}
+                    </ol>
+                  )}
+                  {step.tip && (
+                    <div className="flex items-start gap-3 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+                      <Lightbulb size={18} className="text-amber-500 mt-0.5 shrink-0" />
+                      <p className="text-slate-700 text-sm leading-relaxed"><span className="font-bold text-amber-700">Tip: </span>{step.tip}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {/* Evidence checklist */}
+              {activeSession.evidence && activeSession.evidence.length > 0 && (
+                <div className="bg-white border-2 border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm">
+                  <h3 className="text-lg font-bold text-indigo-800 mb-4 border-b-2 border-indigo-100 pb-2">Evidence to Collect for Paper 2</h3>
+                  <ul className="grid gap-2">
+                    {activeSession.evidence.map((e: string, i: number) => (
+                      <li key={i} className="flex items-start gap-3 text-slate-600"><CheckCircle2 size={18} className="text-emerald-500 mt-0.5 shrink-0" />{e}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Ethics note */}
+              {activeSession.ethics_note && (
+                <div className="bg-rose-50 border-2 border-rose-100 rounded-3xl p-6 sm:p-8">
+                  <h3 className="text-lg font-bold text-rose-800 mb-2">Don't Forget: Ethics</h3>
+                  <p className="text-slate-700 leading-relaxed">{activeSession.ethics_note}</p>
+                </div>
+              )}
+
+              {/* Next up */}
+              {activeSession.next_up && (
+                <div className="bg-indigo-50 border-2 border-indigo-100 rounded-3xl p-6 sm:p-8">
+                  <h3 className="text-lg font-bold text-indigo-800 mb-2 flex items-center gap-2"><Rocket size={18} /> What's Next</h3>
+                  <p className="text-slate-700 leading-relaxed">{activeSession.next_up}</p>
+                </div>
+              )}
+
+              <button onClick={() => setView('dashboard')} className="self-start px-8 py-3 rounded-xl border-2 border-slate-200 bg-white font-bold text-slate-600 flex items-center gap-2">
+                <ArrowLeft size={18} /> Back to Dashboard
+              </button>
+            </motion.div>
+          )}
         </AnimatePresence>
       </main>
 
@@ -606,6 +742,7 @@ function DashboardCard({ icon, color, title, desc, action }: any) {
     emerald: { card: 'hover:border-emerald-500', wrap: 'bg-emerald-100 text-emerald-600', btn: 'bg-emerald-600 border-emerald-800' },
     amber: { card: 'hover:border-amber-500', wrap: 'bg-amber-100 text-amber-600', btn: 'bg-amber-500 border-amber-700' },
     violet: { card: 'hover:border-violet-500', wrap: 'bg-violet-100 text-violet-600', btn: 'bg-violet-600 border-violet-800' },
+    indigo: { card: 'hover:border-indigo-500', wrap: 'bg-indigo-100 text-indigo-600', btn: 'bg-indigo-600 border-indigo-800' },
   };
   const s = styles[color] || styles.emerald;
   return (
